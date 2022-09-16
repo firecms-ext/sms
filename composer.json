@@ -1,0 +1,66 @@
+{
+    "name": "firecms-ext/sms",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "php",
+        "hyperf"
+    ],
+    "description": "hyperf 扩展：短信",
+    "autoload": {
+        "psr-4": {
+            "FirecmsExt\\Sms\\": "src/"
+        },
+        "files": [
+            "src/Functions.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "HyperfTest\\": "tests"
+        }
+    },
+    "require": {
+        "php": ">=8.0",
+        "ext-json": "*",
+        "ext-simplexml": "*",
+        "ext-swoole": ">=4.5",
+        "hyperf/framework": "~v2.0",
+        "hyperf/di": "~v2.0",
+        "giggsey/libphonenumber-for-php": "^8.12",
+        "hyperf-ext/contract": "~2.2.0",
+        "hyperf/async-queue": "~2.2.0",
+        "hyperf/command": "~2.2.0",
+        "hyperf/config": "~2.2.0",
+        "hyperf/devtool": "~2.2.0",
+        "hyperf/event": "~2.2.0",
+        "hyperf/guzzle": "~2.2.0",
+        "hyperf/logger": "~2.2.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "mockery/mockery": "^1.0",
+        "phpstan/phpstan": "^1.0",
+        "phpunit/phpunit": ">=7.0",
+        "swoole/ide-helper": "^4.5"
+    },
+    "suggest": {
+        "swow/swow": "Required to create swow components."
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "scripts": {
+        "test": "phpunit -c phpunit.xml --colors=always",
+        "analyse": "phpstan analyse --memory-limit 1024M -l 0 ./src",
+        "cs-fix": "php-cs-fixer fix $1"
+    },
+    "extra": {
+        "hyperf": {
+            "config": "FirecmsExt\\Sms\\ConfigProvider"
+        }
+    }
+}
