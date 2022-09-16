@@ -32,7 +32,7 @@ class ConfigProvider
             'publish' => [
                 [
                     'id' => 'config',
-                    'description' => 'The config for hyperf-ext/sms.',
+                    'description' => 'The config for firecms-ext/sms.',
                     'source' => __DIR__ . '/../publish/sms.php',
                     'destination' => BASE_PATH . '/config/autoload/sms.php',
                 ],
