@@ -11,9 +11,9 @@ declare(strict_types=1);
  */
 namespace FirecmsExt\Sms\Drivers;
 
+use FirecmsExt\Sms\Contracts\SmsableInterface;
+use FirecmsExt\Sms\Exceptions\DriverErrorException;
 use GuzzleHttp\Exception\ClientException;
-use HyperfExt\Sms\Contracts\SmsableInterface;
-use HyperfExt\Sms\Exceptions\DriverErrorException;
 
 /**
  * @see http://www.rongcloud.cn/docs/sms_service.html#send_sms_code

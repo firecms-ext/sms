@@ -9,14 +9,14 @@ declare(strict_types=1);
  * @contact  zhimengxingyun@klmis.cn
  * @license  https://github.com/firecms-ext/sms/blob/master/LICENSE
  */
-namespace HyperfExt\Sms\Contracts;
+namespace FirecmsExt\Sms\Contracts;
 
 interface SmsManagerInterface
 {
     /**
      * Send the given message immediately.
      *
-     * @throws \HyperfExt\Sms\Exceptions\StrategicallySendMessageException
+     * @throws \FirecmsExt\Sms\Exceptions\StrategicallySendMessageException
      */
     public function sendNow(SmsableInterface $smsable): array;
 

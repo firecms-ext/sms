@@ -11,8 +11,8 @@ declare(strict_types=1);
  */
 namespace FirecmsExt\Sms\Drivers;
 
-use HyperfExt\Sms\Contracts\SmsableInterface;
-use HyperfExt\Sms\Exceptions\DriverErrorException;
+use FirecmsExt\Sms\Contracts\SmsableInterface;
+use FirecmsExt\Sms\Exceptions\DriverErrorException;
 
 /**
  * @see https://luosimao.com/docs/api/

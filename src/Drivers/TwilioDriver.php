@@ -9,11 +9,11 @@ declare(strict_types=1);
  * @contact  zhimengxingyun@klmis.cn
  * @license  https://github.com/firecms-ext/sms/blob/master/LICENSE
  */
-namespace HyperfExt\Sms\Drivers;
+namespace FirecmsExt\Sms\Drivers;
 
+use FirecmsExt\Sms\Contracts\SmsableInterface;
+use FirecmsExt\Sms\Exceptions\DriverErrorException;
 use GuzzleHttp\Exception\ClientException;
-use HyperfExt\Sms\Contracts\SmsableInterface;
-use HyperfExt\Sms\Exceptions\DriverErrorException;
 
 /**
  *  @see https://www.twilio.com/docs/api/messaging/send-messages

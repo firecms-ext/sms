@@ -9,14 +9,14 @@ declare(strict_types=1);
  * @contact  zhimengxingyun@klmis.cn
  * @license  https://github.com/firecms-ext/sms/blob/master/LICENSE
  */
-namespace HyperfExt\Sms\Contracts;
+namespace FirecmsExt\Sms\Contracts;
 
 interface DriverInterface
 {
     /**
      * Send the message.
      *
-     * @throws \HyperfExt\Sms\Exceptions\DriverErrorException
+     * @throws \FirecmsExt\Sms\Exceptions\DriverErrorException
      */
     public function send(SmsableInterface $smsable): array;
 }

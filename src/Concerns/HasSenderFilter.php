@@ -9,9 +9,9 @@ declare(strict_types=1);
  * @contact  zhimengxingyun@klmis.cn
  * @license  https://github.com/firecms-ext/sms/blob/master/LICENSE
  */
-namespace HyperfExt\Sms\Concerns;
+namespace FirecmsExt\Sms\Concerns;
 
-use HyperfExt\Sms\Contracts\MobileNumberInterface;
+use FirecmsExt\Sms\Contracts\MobileNumberInterface;
 
 trait HasSenderFilter
 {

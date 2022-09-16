@@ -1,5 +1,5 @@
-# firecms-ext/demo
+# firecms-ext/sms
 
 ```
-composer require firecms-ext/demo
+composer require firecms-ext/sms
 ```

@@ -9,7 +9,7 @@ declare(strict_types=1);
  * @contact  zhimengxingyun@klmis.cn
  * @license  https://github.com/firecms-ext/sms/blob/master/LICENSE
  */
-namespace HyperfExt\Sms\Contracts;
+namespace FirecmsExt\Sms\Contracts;
 
 use Hyperf\Utils\Contracts\Arrayable;
 
@@ -26,7 +26,7 @@ interface MobileNumberInterface extends Arrayable
      *                                       start with a '+' followed by the country calling code, then
      *                                       "ZZ" or null can be supplied.
      *
-     * @throws \HyperfExt\Sms\Exceptions\InvalidMobileNumberException
+     * @throws \FirecmsExt\Sms\Exceptions\InvalidMobileNumberException
      */
     public function __construct(string $number, $defaultRegion = null);
 

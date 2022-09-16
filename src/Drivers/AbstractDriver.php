@@ -11,14 +11,14 @@ declare(strict_types=1);
  */
 namespace FirecmsExt\Sms\Drivers;
 
+use FirecmsExt\Sms\Client;
+use FirecmsExt\Sms\Contracts\DriverInterface;
 use Hyperf\Config\Config;
-use HyperfExt\Sms\Client;
-use HyperfExt\Sms\Contracts\DriverInterface;
 
 abstract class AbstractDriver implements DriverInterface
 {
     /**
-     * @var \HyperfExt\Sms\Client
+     * @var \FirecmsExt\Sms\Client
      */
     protected $client;
 

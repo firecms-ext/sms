@@ -9,10 +9,10 @@ declare(strict_types=1);
  * @contact  zhimengxingyun@klmis.cn
  * @license  https://github.com/firecms-ext/sms/blob/master/LICENSE
  */
-namespace HyperfExt\Sms\Drivers;
+namespace FirecmsExt\Sms\Drivers;
 
+use FirecmsExt\Sms\Contracts\SmsableInterface;
 use Hyperf\Logger\LoggerFactory;
-use HyperfExt\Sms\Contracts\SmsableInterface;
 use Psr\Container\ContainerInterface;
 
 class LogDriver extends AbstractDriver

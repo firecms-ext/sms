@@ -9,7 +9,7 @@ declare(strict_types=1);
  * @contact  zhimengxingyun@klmis.cn
  * @license  https://github.com/firecms-ext/sms/blob/master/LICENSE
  */
-namespace HyperfExt\Sms\Commands;
+namespace FirecmsExt\Sms\Commands;
 
 use Hyperf\Devtool\Generator\GeneratorCommand;
 

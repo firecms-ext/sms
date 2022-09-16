@@ -11,9 +11,9 @@ declare(strict_types=1);
  */
 namespace FirecmsExt\Sms\Drivers;
 
+use FirecmsExt\Sms\Contracts\SmsableInterface;
+use FirecmsExt\Sms\Exceptions\DriverErrorException;
 use GuzzleHttp\Exception\ClientException;
-use HyperfExt\Sms\Contracts\SmsableInterface;
-use HyperfExt\Sms\Exceptions\DriverErrorException;
 
 /**
  * @see https://dev.yunxin.163.com/docs/product/%E7%9F%AD%E4%BF%A1/%E7%9F%AD%E4%BF%A1%E6%8E%A5%E5%8F%A3%E6%8C%87%E5%8D%97

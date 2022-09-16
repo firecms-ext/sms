@@ -9,13 +9,13 @@ declare(strict_types=1);
  * @contact  zhimengxingyun@klmis.cn
  * @license  https://github.com/firecms-ext/sms/blob/master/LICENSE
  */
-namespace HyperfExt\Sms\Contracts;
+namespace FirecmsExt\Sms\Contracts;
 
 /**
  * @property string[] $senders
  * @property string $strategy
  * @property null|string $from
- * @property \HyperfExt\Sms\Contracts\MobileNumberInterface $to
+ * @property \FirecmsExt\Sms\Contracts\MobileNumberInterface $to
  * @property null|string $content
  * @property null|string $template
  * @property null|string $signature
@@ -94,7 +94,7 @@ interface SmsableInterface
     /**
      * Send the SMS message immediately.
      *
-     * @throws \HyperfExt\Sms\Exceptions\DriverErrorException
+     * @throws \FirecmsExt\Sms\Exceptions\DriverErrorException
      */
     public function send(?SenderInterface $sender = null): array;
 
