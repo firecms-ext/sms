@@ -14,10 +14,24 @@ return [
 
     'default' => [
         'strategy' => \FirecmsExt\Sms\Strategies\OrderStrategy::class,
-        'senders' => ['aliyun', 'tencent_cloud'],
+        'senders' => ['log', 'tencent_cloud', 'rong_cloud', 'aliyun'],
     ],
 
     'senders' => [
+        'tencent_cloud' => [
+            'driver' => \FirecmsExt\Sms\Drivers\TencentCloudDriver::class,
+            'config' => [
+                'sdk_app_id' => '',
+                'secret_id' => '',
+                'secret_key' => '',
+                'sign' => null,
+                'from' => [ // sender_id
+                    'default' => '',
+                    // 'another' => '',
+                ],
+            ],
+        ],
+
         'aliyun' => [
             'driver' => \FirecmsExt\Sms\Drivers\AliyunDriver::class,
             'config' => [
@@ -57,13 +71,6 @@ return [
             ],
         ],
 
-        'luosimao' => [
-            'driver' => \FirecmsExt\Sms\Drivers\LuosimaoDriver::class,
-            'config' => [
-                'api_key' => '',
-            ],
-        ],
-
         'qiniu' => [
             'driver' => \FirecmsExt\Sms\Drivers\QiniuDriver::class,
             'config' => [
@@ -90,56 +97,11 @@ return [
             ],
         ],
 
-        'send_cloud' => [
-            'driver' => \FirecmsExt\Sms\Drivers\SendCloudDriver::class,
-            'config' => [
-                'sms_user' => '',
-                'sms_key' => '',
-                'timestamp' => false,
-            ],
-        ],
-
         'sms_bao' => [
             'driver' => \FirecmsExt\Sms\Drivers\SmsBaoDriver::class,
             'config' => [
                 'user' => '',
                 'password' => '',
-            ],
-        ],
-
-        'tencent_cloud' => [
-            'driver' => \FirecmsExt\Sms\Drivers\TencentCloudDriver::class,
-            'config' => [
-                'sdk_app_id' => '',
-                'secret_id' => '',
-                'secret_key' => '',
-                'sign' => null,
-                'from' => [ // sender_id
-                    'default' => '',
-                    // 'another' => '',
-                ],
-            ],
-        ],
-
-        'twillo' => [
-            'driver' => \FirecmsExt\Sms\Drivers\TwilioDriver::class,
-            'config' => [
-                'account_sid' => '',
-                'token' => '',
-                'from' => [
-                    'default' => '',
-                    // 'another' => '',
-                ],
-            ],
-        ],
-
-        'ucloud' => [
-            'driver' => \FirecmsExt\Sms\Drivers\UCloudDriver::class,
-            'config' => [
-                'private_key' => '',
-                'public_key' => '',
-                'sig_content' => '',
-                'project_id' => '',
             ],
         ],
 

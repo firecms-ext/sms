@@ -14,6 +14,9 @@ namespace FirecmsExt\Sms\Drivers;
 use FirecmsExt\Sms\Contracts\SmsableInterface;
 use FirecmsExt\Sms\Exceptions\DriverErrorException;
 
+/**
+ * 阿里云.
+ */
 class AliyunDriver extends AbstractDriver
 {
     protected const ENDPOINT_URL = 'https://dysmsapi.aliyuncs.com';

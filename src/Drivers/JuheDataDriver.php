@@ -15,6 +15,7 @@ use FirecmsExt\Sms\Contracts\SmsableInterface;
 use FirecmsExt\Sms\Exceptions\DriverErrorException;
 
 /**
+ * 聚合数据.
  * @see https://www.juhe.cn/docs/api/id/54
  */
 class JuheDataDriver extends AbstractDriver

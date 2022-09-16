@@ -13,6 +13,7 @@ namespace FirecmsExt\Sms\Listeners;
 
 use FirecmsExt\Sms\MobileNumber;
 use Hyperf\Event\Contract\ListenerInterface;
+use Hyperf\Validation\Contract\ValidatorFactoryInterface;
 use Hyperf\Validation\Event\ValidatorFactoryResolved;
 use LogicException;
 use Throwable;
@@ -28,7 +29,7 @@ class ValidatorFactoryResolvedListener implements ListenerInterface
 
     public function process(object $event)
     {
-        /** @var \Hyperf\Validation\Contract\ValidatorFactoryInterface $validatorFactory */
+        /** @var ValidatorFactoryInterface $validatorFactory */
         $validatorFactory = $event->validatorFactory;
 
         $validatorFactory->extend('mobile_number', function ($attribute, $value, $parameters, $validator) {

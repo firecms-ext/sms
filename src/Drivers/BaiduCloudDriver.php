@@ -15,6 +15,7 @@ use FirecmsExt\Sms\Contracts\SmsableInterface;
 use FirecmsExt\Sms\Exceptions\DriverErrorException;
 
 /**
+ * 百度.
  * @see https://cloud.baidu.com/doc/SMS/API.html
  */
 class BaiduCloudDriver extends AbstractDriver

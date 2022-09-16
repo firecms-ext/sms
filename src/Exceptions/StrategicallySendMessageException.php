@@ -16,7 +16,7 @@ use Throwable;
 
 class StrategicallySendMessageException extends RuntimeException
 {
-    protected $stack = [];
+    protected array $stack = [];
 
     public function __construct($message, Throwable $throwable)
     {
@@ -31,9 +31,9 @@ class StrategicallySendMessageException extends RuntimeException
     }
 
     /**
-     * @return \Throwable[]
+     * @return Throwable[]
      */
-    public function getStack()
+    public function getStack(): array
     {
         return $this->stack;
     }

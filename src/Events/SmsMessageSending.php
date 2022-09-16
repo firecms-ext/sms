@@ -13,14 +13,15 @@ namespace FirecmsExt\Sms\Events;
 
 use FirecmsExt\Sms\Contracts\SmsableInterface;
 
+/**
+ * 短信消息发生时。
+ */
 class SmsMessageSending
 {
     /**
      * The message instance.
-     *
-     * @var \FirecmsExt\Sms\Contracts\SmsableInterface
      */
-    public $smsable;
+    public SmsableInterface $smsable;
 
     /**
      * Create a new event instance.

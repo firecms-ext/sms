@@ -15,6 +15,7 @@ use FirecmsExt\Sms\Contracts\SmsableInterface;
 use FirecmsExt\Sms\Exceptions\DriverErrorException;
 
 /**
+ * 云片.
  * @see https://www.yunpian.com/doc/zh_CN/intl/single_send.html
  */
 class YunpianDriver extends AbstractDriver

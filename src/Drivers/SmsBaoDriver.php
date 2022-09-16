@@ -15,6 +15,7 @@ use FirecmsExt\Sms\Contracts\SmsableInterface;
 use FirecmsExt\Sms\Exceptions\DriverErrorException;
 
 /**
+ * 短信宝.
  * @see http://www.smsbao.com/openapi/
  */
 class SmsBaoDriver extends AbstractDriver

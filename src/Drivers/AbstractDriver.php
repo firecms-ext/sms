@@ -17,15 +17,9 @@ use Hyperf\Config\Config;
 
 abstract class AbstractDriver implements DriverInterface
 {
-    /**
-     * @var \FirecmsExt\Sms\Client
-     */
-    protected $client;
+    protected Client $client;
 
-    /**
-     * @var \Hyperf\Config\Config
-     */
-    protected $config;
+    protected Config $config;
 
     /**
      * The driver constructor.

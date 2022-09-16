@@ -11,8 +11,12 @@ declare(strict_types=1);
  */
 namespace FirecmsExt\Sms\Contracts;
 
+use FirecmsExt\Sms\Exceptions\InvalidMobileNumberException;
 use Hyperf\Utils\Contracts\Arrayable;
 
+/**
+ * 手机号码
+ */
 interface MobileNumberInterface extends Arrayable
 {
     /**
@@ -26,9 +30,9 @@ interface MobileNumberInterface extends Arrayable
      *                                       start with a '+' followed by the country calling code, then
      *                                       "ZZ" or null can be supplied.
      *
-     * @throws \FirecmsExt\Sms\Exceptions\InvalidMobileNumberException
+     * @throws InvalidMobileNumberException
      */
-    public function __construct(string $number, $defaultRegion = null);
+    public function __construct(string $number, int|string $defaultRegion = null);
 
     public function __toString(): string;
 

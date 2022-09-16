@@ -15,6 +15,9 @@ use FirecmsExt\Sms\Concerns\HasSenderFilter;
 use FirecmsExt\Sms\Contracts\MobileNumberInterface;
 use FirecmsExt\Sms\Contracts\StrategyInterface;
 
+/**
+ * 订单策略。
+ */
 class OrderStrategy implements StrategyInterface
 {
     use HasSenderFilter;

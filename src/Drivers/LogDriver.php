@@ -14,23 +14,25 @@ namespace FirecmsExt\Sms\Drivers;
 use FirecmsExt\Sms\Contracts\SmsableInterface;
 use Hyperf\Logger\LoggerFactory;
 use Psr\Container\ContainerInterface;
+use Psr\Log\LoggerInterface;
 
+/**
+ * 日志.
+ */
 class LogDriver extends AbstractDriver
 {
     /**
      * The Logger instance.
-     *
-     * @var \Psr\Log\LoggerInterface
      */
-    protected $logger;
+    protected LoggerInterface $logger;
 
     public function __construct(ContainerInterface $container, array $config)
     {
         parent::__construct($config);
 
         $this->logger = $container->get(LoggerFactory::class)->get(
-            $options['name'] ?? 'sms.local',
-            $options['group'] ?? 'default'
+            $config['name'] ?? 'sms.local',
+            $config['group'] ?? 'default'
         );
     }
 
@@ -46,6 +48,8 @@ class LogDriver extends AbstractDriver
 
         $this->logger->debug($log);
 
+        $status = 200;
+        $file = $log;
         return compact('status', 'file');
     }
 }

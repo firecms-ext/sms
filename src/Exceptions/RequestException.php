@@ -11,8 +11,10 @@ declare(strict_types=1);
  */
 namespace FirecmsExt\Sms\Exceptions;
 
+use FirecmsExt\Sms\Response;
+
 /**
- * @method \FirecmsExt\Sms\Response getResponse()
+ * @method Response getResponse()
  */
 class RequestException extends \GuzzleHttp\Exception\RequestException
 {

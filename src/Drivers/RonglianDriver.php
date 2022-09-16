@@ -15,6 +15,7 @@ use FirecmsExt\Sms\Contracts\SmsableInterface;
 use FirecmsExt\Sms\Exceptions\DriverErrorException;
 
 /**
+ * 容联.
  * @see http://www.yuntongxun.com/doc/rest/sms/3_2_2_2.html
  */
 class RonglianDriver extends AbstractDriver

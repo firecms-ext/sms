@@ -16,6 +16,9 @@ use FirecmsExt\Sms\Exceptions\DriverErrorException;
 use FirecmsExt\Sms\Exceptions\RequestException;
 use InvalidArgumentException;
 
+/**
+ * 华为.
+ */
 class HuaweiCloudDriver extends AbstractDriver
 {
     protected const ENDPOINT_HOST = 'https://api.rtc.huaweicloud.com:10443';

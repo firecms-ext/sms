@@ -13,15 +13,9 @@ namespace FirecmsExt\Sms\Rules;
 
 class MobileNumberFormat
 {
-    /**
-     * @var string
-     */
-    protected $format;
+    protected string $format;
 
-    /**
-     * @var null|string
-     */
-    protected $defaultRegion;
+    protected ?string $defaultRegion;
 
     /**
      * Create a new in rule instance.

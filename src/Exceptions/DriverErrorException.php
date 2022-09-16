@@ -17,10 +17,7 @@ use Throwable;
 
 class DriverErrorException extends RuntimeException
 {
-    /**
-     * @var \Psr\Http\Message\ResponseInterface
-     */
-    public $response;
+    public ResponseInterface $response;
 
     public function __construct(string $message, $code = null, ResponseInterface $response = null, Throwable $previous = null)
     {

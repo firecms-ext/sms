@@ -16,14 +16,14 @@ class MobileNumber
     /**
      * @var string[]
      */
-    protected $regionCodes;
+    protected array $regionCodes;
 
     /**
      * Create a new in rule instance.
      *
      * @param null|string|string[] $regionCodes
      */
-    public function __construct($regionCodes = null, string ...$_)
+    public function __construct(array|string $regionCodes = null, string ...$_)
     {
         if (is_array($regionCodes)) {
             $this->regionCodes = $regionCodes;

@@ -15,6 +15,9 @@ use FirecmsExt\Sms\Concerns\HasSenderFilter;
 use FirecmsExt\Sms\Contracts\MobileNumberInterface;
 use FirecmsExt\Sms\Contracts\StrategyInterface;
 
+/**
+ * 随机策略。
+ */
 class RandomStrategy implements StrategyInterface
 {
     use HasSenderFilter;

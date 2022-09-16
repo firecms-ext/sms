@@ -14,23 +14,21 @@ namespace FirecmsExt\Sms;
 use FirecmsExt\Sms\Contracts\MobileNumberInterface;
 use FirecmsExt\Sms\Exceptions\InvalidMobileNumberException;
 use libphonenumber\NumberParseException;
+use libphonenumber\PhoneNumber;
 use libphonenumber\PhoneNumberFormat;
 use libphonenumber\PhoneNumberType;
 use libphonenumber\PhoneNumberUtil;
 
+/**
+ * 手机。
+ */
 class MobileNumber implements MobileNumberInterface
 {
-    /**
-     * @var \libphonenumber\PhoneNumberUtil
-     */
-    protected $util;
+    protected PhoneNumberUtil $util;
 
-    /**
-     * @var \libphonenumber\PhoneNumber
-     */
-    protected $info;
+    protected PhoneNumber $info;
 
-    public function __construct(string $number, $defaultRegion = null)
+    public function __construct(string $number, int|string $defaultRegion = null)
     {
         $this->util = PhoneNumberUtil::getInstance();
 

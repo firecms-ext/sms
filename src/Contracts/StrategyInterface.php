@@ -11,6 +11,9 @@ declare(strict_types=1);
  */
 namespace FirecmsExt\Sms\Contracts;
 
+/**
+ * 策略.
+ */
 interface StrategyInterface
 {
     /**

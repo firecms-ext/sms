@@ -25,17 +25,18 @@
         "ext-json": "*",
         "ext-simplexml": "*",
         "ext-swoole": ">=4.5",
-        "hyperf/framework": "~v2.0",
-        "hyperf/di": "~v2.0",
-        "giggsey/libphonenumber-for-php": "^8.12",
         "firecms-ext/contract": "~2.2.0",
+        "giggsey/libphonenumber-for-php": "^8.12",
         "hyperf/async-queue": "~2.2.0",
         "hyperf/command": "~2.2.0",
         "hyperf/config": "~2.2.0",
         "hyperf/devtool": "~2.2.0",
+        "hyperf/di": "~v2.0",
         "hyperf/event": "~2.2.0",
-        "hyperf/guzzle": "~2.2.0",
-        "hyperf/logger": "~2.2.0"
+        "hyperf/framework": "~v2.0",
+        "hyperf/guzzle": "^2.2",
+        "hyperf/logger": "~2.2.0",
+        "hyperf/validation": "^2.2"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",

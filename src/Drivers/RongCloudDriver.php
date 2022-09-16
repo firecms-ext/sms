@@ -16,6 +16,7 @@ use FirecmsExt\Sms\Exceptions\DriverErrorException;
 use GuzzleHttp\Exception\ClientException;
 
 /**
+ * 融云.
  * @see http://www.rongcloud.cn/docs/sms_service.html#send_sms_code
  */
 class RongCloudDriver extends AbstractDriver

@@ -17,9 +17,9 @@ use Hyperf\AsyncQueue\Job;
 class QueuedSmsableJob extends Job
 {
     /**
-     * @var \FirecmsExt\Sms\Contracts\SmsableInterface
+     * @var SmsableInterface
      */
-    public $smsable;
+    public SmsableInterface $smsable;
 
     public function __construct(SmsableInterface $smsable)
     {

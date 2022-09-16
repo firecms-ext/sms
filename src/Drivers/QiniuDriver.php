@@ -15,6 +15,7 @@ use FirecmsExt\Sms\Contracts\SmsableInterface;
 use FirecmsExt\Sms\Exceptions\DriverErrorException;
 
 /**
+ * 七牛.
  * @see https://developer.qiniu.com/sms/api/5897/sms-api-send-message
  */
 class QiniuDriver extends AbstractDriver

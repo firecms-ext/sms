@@ -11,11 +11,12 @@ declare(strict_types=1);
  */
 namespace FirecmsExt\Sms;
 
+use FirecmsExt\Sms\Contracts\DriverInterface;
 use FirecmsExt\Sms\Contracts\SenderInterface;
 use FirecmsExt\Sms\Contracts\SmsableInterface;
 use FirecmsExt\Sms\Events\SmsMessageSending;
 use FirecmsExt\Sms\Events\SmsMessageSent;
-use Hyperf\Utils\Traits\Macroable;
+use Hyperf\Macroable\Macroable;
 use Psr\Container\ContainerInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
 
@@ -26,22 +27,22 @@ class Sender implements SenderInterface
     /**
      * @var string
      */
-    protected $name;
+    protected string $name;
 
     /**
-     * @var \FirecmsExt\Sms\Contracts\DriverInterface
+     * @var DriverInterface
      */
-    protected $driver;
+    protected DriverInterface $driver;
 
     /**
-     * @var
+     * @var ContainerInterface
      */
-    protected $container;
+    protected ContainerInterface $container;
 
     /**
-     * @var \Psr\EventDispatcher\EventDispatcherInterface
+     * @var EventDispatcherInterface
      */
-    protected $eventDispatcher;
+    protected EventDispatcherInterface $eventDispatcher;
 
     public function __construct(
         string $name,

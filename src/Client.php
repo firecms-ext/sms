@@ -18,10 +18,7 @@ use Hyperf\Utils\ApplicationContext;
 
 class Client
 {
-    /**
-     * @var \GuzzleHttp\Client
-     */
-    protected $client;
+    protected \GuzzleHttp\Client $client;
 
     public function __construct(array $config = [])
     {
@@ -31,7 +28,7 @@ class Client
     /**
      * Make a get request.
      *
-     * @throws \FirecmsExt\Sms\Exceptions\RequestException
+     * @throws RequestException
      */
     public function get(string $url, array $query = [], array $headers = []): Response
     {
@@ -44,7 +41,7 @@ class Client
     /**
      * Make a post request.
      *
-     * @throws \FirecmsExt\Sms\Exceptions\RequestException
+     * @throws RequestException
      */
     public function post(string $url, array $params = [], array $headers = []): Response
     {
@@ -57,7 +54,7 @@ class Client
     /**
      * Make a post request with json params.
      *
-     * @throws \FirecmsExt\Sms\Exceptions\RequestException
+     * @throws RequestException
      */
     public function postJson(string $endpoint, array $params = [], array $headers = []): Response
     {

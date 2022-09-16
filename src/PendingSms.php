@@ -12,28 +12,28 @@ declare(strict_types=1);
 namespace FirecmsExt\Sms;
 
 use FirecmsExt\Contract\HasMobileNumber;
+use FirecmsExt\Sms\Contracts\MobileNumberInterface;
+use FirecmsExt\Sms\Contracts\SenderInterface;
 use FirecmsExt\Sms\Contracts\SmsableInterface;
 use FirecmsExt\Sms\Contracts\SmsManagerInterface;
+use FirecmsExt\Sms\Exceptions\InvalidMobileNumberException;
 use Hyperf\Utils\ApplicationContext;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
+/**
+ * 等待短信
+ */
 class PendingSms
 {
     /**
      * The "to" recipient of the message.
-     *
-     * @var \FirecmsExt\Sms\Contracts\MobileNumberInterface
      */
-    protected $to;
+    protected MobileNumberInterface $to;
 
-    /**
-     * @var \FirecmsExt\Sms\Contracts\SmsManagerInterface
-     */
-    protected $manger;
+    protected SmsManagerInterface $manger;
 
-    /**
-     * @var \FirecmsExt\Sms\Contracts\SenderInterface
-     */
-    protected $sender;
+    protected SenderInterface $sender;
 
     public function __construct(SmsManagerInterface $manger)
     {
@@ -43,13 +43,10 @@ class PendingSms
     /**
      * Set the recipients of the message.
      *
-     * @param \FirecmsExt\Contract\HasMobileNumber|string $number
-     * @param null|int|string $defaultRegion
-     *
      * @return $this
-     * @throws \FirecmsExt\Sms\Exceptions\InvalidMobileNumberException
+     * @throws InvalidMobileNumberException
      */
-    public function to($number, $defaultRegion = null)
+    public function to(HasMobileNumber|string $number, int|string $defaultRegion = null): static
     {
         $number = $number instanceof HasMobileNumber ? $number->getMobileNumber() : $number;
 
@@ -60,10 +57,10 @@ class PendingSms
 
     /**
      * Set the sender of the SMS message.
-     *
-     * @return $this
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
-    public function sender(string $name)
+    public function sender(string $name): static
     {
         $this->sender = ApplicationContext::getContainer()->get(SmsManagerInterface::class)->get($name);
 
@@ -80,10 +77,8 @@ class PendingSms
 
     /**
      * Send a new SMS message instance.
-     *
-     * @return array|bool
      */
-    public function send(SmsableInterface $smsable)
+    public function send(SmsableInterface $smsable): bool|array
     {
         return $this->manger->send($this->fill($smsable));
     }

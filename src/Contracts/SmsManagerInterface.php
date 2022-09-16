@@ -11,21 +11,24 @@ declare(strict_types=1);
  */
 namespace FirecmsExt\Sms\Contracts;
 
+use FirecmsExt\Sms\Exceptions\StrategicallySendMessageException;
+
+/**
+ * 短信管理.
+ */
 interface SmsManagerInterface
 {
     /**
      * Send the given message immediately.
      *
-     * @throws \FirecmsExt\Sms\Exceptions\StrategicallySendMessageException
+     * @throws StrategicallySendMessageException
      */
     public function sendNow(SmsableInterface $smsable): array;
 
     /**
      * Send the given message.
-     *
-     * @return array|bool
      */
-    public function send(SmsableInterface $smsable);
+    public function send(SmsableInterface $smsable): bool|array;
 
     /**
      * Queue the message for sending.

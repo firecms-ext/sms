@@ -11,12 +11,17 @@ declare(strict_types=1);
  */
 namespace FirecmsExt\Sms\Contracts;
 
+use FirecmsExt\Sms\Exceptions\DriverErrorException;
+
+/**
+ * 驱动.
+ */
 interface DriverInterface
 {
     /**
      * Send the message.
      *
-     * @throws \FirecmsExt\Sms\Exceptions\DriverErrorException
+     * @throws DriverErrorException
      */
     public function send(SmsableInterface $smsable): array;
 }

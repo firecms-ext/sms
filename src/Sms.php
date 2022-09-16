@@ -14,12 +14,18 @@ namespace FirecmsExt\Sms;
 use FirecmsExt\Contract\HasMailAddress;
 use FirecmsExt\Sms\Contracts\SmsManagerInterface;
 use Hyperf\Utils\ApplicationContext;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
 /**
- * @method static \FirecmsExt\Sms\PendingSms to(HasMailAddress|string $number, null|int|string $defaultRegion = null)
+ * @method static PendingSms to(HasMailAddress|string $number, null|int|string $defaultRegion = null)
  */
 class Sms
 {
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
     public static function __callStatic(string $method, array $args)
     {
         $instance = static::getManager();
@@ -27,12 +33,22 @@ class Sms
         return $instance->{$method}(...$args);
     }
 
-    public static function sender(string $name)
+    /**
+     * 发送工具。
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+    public static function sender(string $name): PendingSms
     {
         return (new PendingSms(static::getManager()))->sender($name);
     }
 
-    protected static function getManager()
+    /**
+     * 管理对象。
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+    protected static function getManager(): SmsManagerInterface
     {
         return ApplicationContext::getContainer()->get(SmsManagerInterface::class);
     }

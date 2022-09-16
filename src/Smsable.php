@@ -31,79 +31,79 @@ abstract class Smsable implements SmsableInterface, CompressInterface, UnCompres
     /**
      * @var string[]
      */
-    public $senders;
+    public array $senders;
 
     /**
      * @var string
      */
-    public $sender;
+    public string $sender;
 
     /**
      * @var string
      */
-    public $from;
+    public string $from;
 
     /**
-     * @var \FirecmsExt\Sms\Contracts\MobileNumberInterface
+     * @var MobileNumberInterface
      */
-    public $to;
-
-    /**
-     * @var string
-     */
-    public $content;
+    public MobileNumberInterface $to;
 
     /**
      * @var string
      */
-    public $template;
+    public string $content;
 
     /**
      * @var string
      */
-    public $signature;
+    public string $template;
+
+    /**
+     * @var string
+     */
+    public string $signature;
 
     /**
      * @var array
      */
     public $data = [];
 
-    public function from(string $from)
+    public function from(string $from): static
     {
         $this->from = $from;
 
         return $this;
     }
 
-    public function to(MobileNumberInterface $to)
+    public function to(MobileNumberInterface $to): static
     {
         $this->to = $to;
 
         return $this;
     }
 
-    public function content(string $content)
+    public function content(string $content): static
     {
         $this->content = $content;
 
         return $this;
     }
 
-    public function template(string $template)
+    public function template(string $template): static
     {
         $this->template = $template;
 
         return $this;
     }
 
-    public function signature(string $signature)
+    public function signature(string $signature): static
     {
         $this->signature = $signature;
 
         return $this;
     }
 
-    public function with($key, $value = null)
+    public function with(array|string $key, mixed $value = null): static
     {
         if (is_array($key)) {
             $this->data = array_merge($this->data, $key);
@@ -114,21 +114,21 @@ abstract class Smsable implements SmsableInterface, CompressInterface, UnCompres
         return $this;
     }
 
-    public function strategy(string $class)
+    public function strategy(string $class): static
     {
         $this->strategy = $class;
 
         return $this;
     }
 
-    public function senders(array $names)
+    public function senders(array $names): static
     {
         $this->senders = $names;
 
         return $this;
     }
 
-    public function sender(string $name)
+    public function sender(string $name): static
     {
         $this->sender = $name;
 
@@ -183,7 +183,7 @@ abstract class Smsable implements SmsableInterface, CompressInterface, UnCompres
     /**
      * Push the queued SMS message job onto the queue.
      */
-    protected function pushQueuedJob(QueuedSmsableJob $job, ?string $queue = null, ?int $delay = null)
+    protected function pushQueuedJob(QueuedSmsableJob $job, ?string $queue = null, ?int $delay = null): bool
     {
         $queue = $queue ?: (property_exists($this, 'queue') ? $this->queue : array_key_first(config('async_queue')));
 

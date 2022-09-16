@@ -11,10 +11,12 @@ declare(strict_types=1);
  */
 namespace FirecmsExt\Sms;
 
+use FirecmsExt\Contract\HasMobileNumber;
 use FirecmsExt\Contract\ShouldQueue;
 use FirecmsExt\Sms\Contracts\SenderInterface;
 use FirecmsExt\Sms\Contracts\SmsableInterface;
 use FirecmsExt\Sms\Contracts\SmsManagerInterface;
+use FirecmsExt\Sms\Exceptions\InvalidMobileNumberException;
 use FirecmsExt\Sms\Exceptions\StrategicallySendMessageException;
 use Hyperf\Contract\ConfigInterface;
 use InvalidArgumentException;
@@ -27,23 +29,23 @@ class SmsManager implements SmsManagerInterface
     /**
      * The container instance.
      *
-     * @var \Psr\Container\ContainerInterface
+     * @var ContainerInterface
      */
-    protected $container;
+    protected ContainerInterface $container;
 
     /**
      * The array of resolved senders.
      *
-     * @var \FirecmsExt\Sms\Contracts\SenderInterface[]
+     * @var SenderInterface[]
      */
-    protected $senders = [];
+    protected array $senders = [];
 
     /**
      * The config instance.
      *
      * @var array
      */
-    protected $config;
+    protected mixed $config;
 
     /**
      * Create a new Mail manager instance.
@@ -82,7 +84,7 @@ class SmsManager implements SmsManagerInterface
         throw $exception;
     }
 
-    public function send(SmsableInterface $smsable)
+    public function send(SmsableInterface $smsable): bool|array
     {
         if ($smsable instanceof ShouldQueue) {
             return $smsable->queue();
@@ -102,10 +104,10 @@ class SmsManager implements SmsManagerInterface
     }
 
     /**
-     * @param \FirecmsExt\Contract\HasMobileNumber|string $number
+     * @param HasMobileNumber|string $number
      * @param null|int|string $defaultRegion
      *
-     * @throws \FirecmsExt\Sms\Exceptions\InvalidMobileNumberException
+     * @throws InvalidMobileNumberException
      */
     public function to($number, $defaultRegion = null): PendingSms
     {
