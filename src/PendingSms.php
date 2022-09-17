@@ -11,7 +11,7 @@ declare(strict_types=1);
  */
 namespace FirecmsExt\Sms;
 
-use FirecmsExt\Contract\HasMobileNumber;
+use FirecmsExt\Sms\Contracts\HasMobileNumber;
 use FirecmsExt\Sms\Contracts\MobileNumberInterface;
 use FirecmsExt\Sms\Contracts\SenderInterface;
 use FirecmsExt\Sms\Contracts\SmsableInterface;

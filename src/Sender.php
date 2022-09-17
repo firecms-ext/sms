@@ -24,24 +24,12 @@ class Sender implements SenderInterface
 {
     use Macroable;
 
-    /**
-     * @var string
-     */
     protected string $name;
 
-    /**
-     * @var DriverInterface
-     */
     protected DriverInterface $driver;
 
-    /**
-     * @var ContainerInterface
-     */
     protected ContainerInterface $container;
 
-    /**
-     * @var EventDispatcherInterface
-     */
     protected EventDispatcherInterface $eventDispatcher;
 
     public function __construct(

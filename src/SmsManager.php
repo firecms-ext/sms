@@ -11,8 +11,8 @@ declare(strict_types=1);
  */
 namespace FirecmsExt\Sms;
 
-use FirecmsExt\Contract\HasMobileNumber;
-use FirecmsExt\Contract\ShouldQueue;
+use FirecmsExt\Sms\Contracts\HasMobileNumber;
+use FirecmsExt\Sms\Contracts\ShouldQueue;
 use FirecmsExt\Sms\Contracts\SenderInterface;
 use FirecmsExt\Sms\Contracts\SmsableInterface;
 use FirecmsExt\Sms\Contracts\SmsManagerInterface;
@@ -28,8 +28,6 @@ class SmsManager implements SmsManagerInterface
 {
     /**
      * The container instance.
-     *
-     * @var ContainerInterface
      */
     protected ContainerInterface $container;
 

@@ -10,7 +10,7 @@ declare(strict_types=1);
  */
 namespace %NAMESPACE%;
 
-use FirecmsExt\Contract\ShouldQueue;
+use FirecmsExt\Sms\ShouldQueue;
 use FirecmsExt\Sms\Contracts\SenderInterface;
 use FirecmsExt\Sms\Smsable;
 

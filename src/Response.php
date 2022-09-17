@@ -18,9 +18,6 @@ use Psr\Http\Message\StreamInterface;
 
 class Response implements ResponseInterface, Arrayable
 {
-    /**
-     * @var PsrResponseInterface
-     */
     private PsrResponseInterface $response;
 
     public function __construct(PsrResponseInterface $response)

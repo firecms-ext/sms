@@ -33,34 +33,16 @@ abstract class Smsable implements SmsableInterface, CompressInterface, UnCompres
      */
     public array $senders;
 
-    /**
-     * @var string
-     */
     public string $sender;
 
-    /**
-     * @var string
-     */
     public string $from;
 
-    /**
-     * @var MobileNumberInterface
-     */
     public MobileNumberInterface $to;
 
-    /**
-     * @var string
-     */
     public string $content;
 
-    /**
-     * @var string
-     */
     public string $template;
 
-    /**
-     * @var string
-     */
     public string $signature;
 
     /**

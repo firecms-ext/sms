@@ -11,7 +11,7 @@ declare(strict_types=1);
  */
 namespace FirecmsExt\Sms;
 
-use FirecmsExt\Contract\HasMailAddress;
+use FirecmsExt\Sms\Contracts\HasMailAddress;
 use FirecmsExt\Sms\Contracts\SmsManagerInterface;
 use Hyperf\Utils\ApplicationContext;
 use Psr\Container\ContainerExceptionInterface;
