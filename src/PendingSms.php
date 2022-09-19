@@ -33,7 +33,7 @@ class PendingSms
 
     protected SmsManagerInterface $manger;
 
-    protected SenderInterface $sender;
+    protected ?SenderInterface $sender = null;
 
     public function __construct(SmsManagerInterface $manger)
     {

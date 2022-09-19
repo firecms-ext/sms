@@ -40,16 +40,14 @@ class LogDriver extends AbstractDriver
     {
         $log = sprintf(
             "To: %s | Content: \"%s\" | Template: \"%s\" | Data: %s\n",
-            $smsable->to->toE164(),
-            $smsable->content,
-            $smsable->template,
-            json_encode($smsable->data)
+            $smsable->to->toE164() ?? '',
+            $smsable->content ?? '',
+            $smsable->template ?? '',
+            json_encode($smsable->data ?? [])
         );
 
         $this->logger->debug($log);
 
-        $status = 200;
-        $file = $log;
-        return compact('status', 'file');
+        return [];
     }
 }

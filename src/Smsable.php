@@ -31,7 +31,7 @@ abstract class Smsable implements SmsableInterface, CompressInterface, UnCompres
     /**
      * @var string[]
      */
-    public array $senders;
+    public array $senders = [];
 
     public string $sender;
 
