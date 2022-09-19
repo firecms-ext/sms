@@ -23,31 +23,23 @@ use Hyperf\Utils\ApplicationContext;
 
 abstract class Smsable implements SmsableInterface, CompressInterface, UnCompressInterface
 {
-    /**
-     * @var string
-     */
+
+    public MobileNumberInterface $to;
+
     public $strategy = OrderStrategy::class;
 
-    /**
-     * @var string[]
-     */
     public array $senders = [];
 
     public string $sender;
 
-    public string $from;
+    public ?string $from = null;
 
-    public MobileNumberInterface $to;
+    public ?string $content = null;
 
-    public string $content;
+    public ?string $template = null;
 
-    public string $template;
+    public ?string $signature = null;
 
-    public string $signature;
-
-    /**
-     * @var array
-     */
     public $data = [];
 
     public function from(string $from): static
