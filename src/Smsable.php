@@ -39,7 +39,7 @@ abstract class Smsable implements SmsableInterface, CompressInterface, UnCompres
 
     public ?string $signature = null;
 
-    public $data = [];
+    public array $data = [];
 
     public function from(string $from): static
     {
