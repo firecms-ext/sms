@@ -14,7 +14,7 @@ return [
 
     'default' => [
         'strategy' => \FirecmsExt\Sms\Strategies\OrderStrategy::class,
-        'senders' => ['log', 'tencent_cloud', 'rong_cloud', 'aliyun'],
+        'senders' => ['log', 'tencent_cloud', 'aliyun'],
     ],
 
     'senders' => [
@@ -121,6 +121,18 @@ return [
                 'app_secret' => env('SMS_YUNXIN_APP_SECRET', ''),
                 'code_length' => 4,
                 'need_up' => false,
+            ],
+        ],
+
+        'twilio' => [
+            'driver' => \FirecmsExt\Sms\Drivers\TwilioDriver::class,
+            'config' => [
+                'account_sid' => env('SMS_TWILIO_ACCOUNT_SID', ''),
+                'token' => env('SMS_TWILIO_TOKEN', ''),
+                'from' => [
+                    'default' => env('SMS_TWILIO_DEFAULT', ''),
+                    'another' => env('SMS_TWILIO_ANOTHER', ''),
+                ],
             ],
         ],
 

@@ -16,6 +16,7 @@ use FirecmsExt\Sms\Exceptions\DriverErrorException;
 
 /**
  * 阿里云.
+ * @see https://help.aliyun.com/document_detail/57535.html
  */
 class AliyunDriver extends AbstractDriver
 {

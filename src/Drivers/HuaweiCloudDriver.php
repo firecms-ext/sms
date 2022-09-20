@@ -18,6 +18,7 @@ use InvalidArgumentException;
 
 /**
  * 华为.
+ * @see https://support.huaweicloud.com/devg-msgsms/sms_04_0000.html
  */
 class HuaweiCloudDriver extends AbstractDriver
 {
