@@ -23,7 +23,6 @@ use Hyperf\Utils\ApplicationContext;
 
 abstract class Smsable implements SmsableInterface, CompressInterface, UnCompressInterface
 {
-
     public MobileNumberInterface $to;
 
     public $strategy = OrderStrategy::class;

@@ -12,8 +12,8 @@ declare(strict_types=1);
 namespace FirecmsExt\Sms;
 
 use FirecmsExt\Sms\Contracts\HasMobileNumber;
-use FirecmsExt\Sms\Contracts\ShouldQueue;
 use FirecmsExt\Sms\Contracts\SenderInterface;
+use FirecmsExt\Sms\Contracts\ShouldQueue;
 use FirecmsExt\Sms\Contracts\SmsableInterface;
 use FirecmsExt\Sms\Contracts\SmsManagerInterface;
 use FirecmsExt\Sms\Exceptions\InvalidMobileNumberException;
@@ -74,7 +74,10 @@ class SmsManager implements SmsManagerInterface
                 return $smsable->send($this->get($sender));
             } catch (Throwable $throwable) {
                 $exception = empty($exception)
-                    ? new StrategicallySendMessageException('The SMS manger encountered some errors on strategically send the message', $throwable)
+                    ? new StrategicallySendMessageException(
+                        'The SMS manger encountered some errors on strategically send the message',
+                        $throwable
+                    )
                     : $exception->appendStack($exception);
             }
         }

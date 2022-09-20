@@ -102,7 +102,7 @@ return [
             'driver' => \FirecmsExt\Sms\Drivers\SmsBaoDriver::class,
             'config' => [
                 'user' => env('SMS_BAO_USER', ''),
-                'password' =>env('SMS_BAO_PASSWORD', ''),
+                'password' => env('SMS_BAO_PASSWORD', ''),
             ],
         ],
 

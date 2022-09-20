@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 /**
- * This file is part of FirecmsExt Contract.
+ * This file is part of FirecmsExt Sms.
  *
  * @link     https://www.klmis.cn
  * @document https://www.klmis.cn
  * @contact  zhimengxingyun@klmis.cn
- * @license  https://github.com/firecms-ext/contract/blob/master/LICENSE
+ * @license  https://github.com/firecms-ext/sms/blob/master/LICENSE
  */
 namespace FirecmsExt\Contracts;
 
