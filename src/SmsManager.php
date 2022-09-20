@@ -13,10 +13,9 @@ namespace FirecmsExt\Sms;
 
 use FirecmsExt\Sms\Contracts\HasMobileNumber;
 use FirecmsExt\Sms\Contracts\SenderInterface;
-use FirecmsExt\Sms\Contracts\ShouldQueue;
+use FirecmsExt\Sms\Contracts\ShouldQueueInterface;
 use FirecmsExt\Sms\Contracts\SmsableInterface;
 use FirecmsExt\Sms\Contracts\SmsManagerInterface;
-use FirecmsExt\Sms\Exceptions\InvalidMobileNumberException;
 use FirecmsExt\Sms\Exceptions\StrategicallySendMessageException;
 use Hyperf\Contract\ConfigInterface;
 use InvalidArgumentException;
@@ -87,7 +86,7 @@ class SmsManager implements SmsManagerInterface
 
     public function send(SmsableInterface $smsable): bool|array
     {
-        if ($smsable instanceof ShouldQueue) {
+        if ($smsable instanceof ShouldQueueInterface) {
             return $smsable->queue();
         }
 
@@ -105,12 +104,9 @@ class SmsManager implements SmsManagerInterface
     }
 
     /**
-     * @param HasMobileNumber|string $number
-     * @param null|int|string $defaultRegion
-     *
-     * @throws InvalidMobileNumberException
+     * 发送目标.
      */
-    public function to($number, $defaultRegion = null): PendingSms
+    public function to(HasMobileNumber|string $number, int|string $defaultRegion = null): PendingSms
     {
         return (new PendingSms($this))->to($number, $defaultRegion);
     }

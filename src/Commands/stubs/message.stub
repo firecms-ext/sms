@@ -10,7 +10,7 @@ declare(strict_types=1);
  */
 namespace %NAMESPACE%;
 
-use FirecmsExt\Sms\Contracts\ShouldQueue;
+use FirecmsExt\Sms\Contracts\ShouldQueueInterface as ShouldQueue;
 use FirecmsExt\Sms\Contracts\SenderInterface;
 use FirecmsExt\Sms\Smsable;
 
@@ -19,7 +19,7 @@ class %CLASS% extends Smsable implements ShouldQueue
     /**
      * Create a new SMS message instance.
      */
-    public function __construct()
+    public function __construct(public array $data)
     {
         //
     }

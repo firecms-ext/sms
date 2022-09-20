@@ -11,6 +11,6 @@ declare(strict_types=1);
  */
 namespace FirecmsExt\Sms\Contracts;
 
-interface ShouldQueue
+interface ShouldQueueInterface
 {
 }
