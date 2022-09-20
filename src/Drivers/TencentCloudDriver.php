@@ -73,10 +73,10 @@ class TencentCloudDriver extends AbstractDriver
 
         $result = $response->toArray();
 
-        $status = Arr::get($result, 'Response.SendStatusSet.0');
+        $status = Arr::get($result, 'Response.SendStatusSet.0') ?: Arr::get($result, 'Response.Error');
 
-        if ($status['Code'] != 'Ok') {
-            throw new DriverErrorException($status['Message'], $status['Code'], $response);
+        if (! $status || $status['Code'] != 'Ok') {
+            throw new DriverErrorException($status['Message'] ?? 'request SmsSdk unusual', $status['Code'] ?? '500', $response);
         }
 
         return $result;
