@@ -15,8 +15,6 @@ use FirecmsExt\Sms\MobileNumber;
 use Hyperf\Event\Contract\ListenerInterface;
 use Hyperf\Validation\Contract\ValidatorFactoryInterface;
 use Hyperf\Validation\Event\ValidatorFactoryResolved;
-use LogicException;
-use Throwable;
 
 class ValidatorFactoryResolvedListener implements ListenerInterface
 {
@@ -37,7 +35,7 @@ class ValidatorFactoryResolvedListener implements ListenerInterface
 
             try {
                 $phoneNumber = new MobileNumber($value, $defaultRegion);
-            } catch (Throwable $e) {
+            } catch (\Throwable $e) {
                 return false;
             }
 
@@ -56,7 +54,7 @@ class ValidatorFactoryResolvedListener implements ListenerInterface
 
         $validatorFactory->extend('mobile_number_format', function ($attribute, $value, $parameters, $validator) {
             if (empty($parameters)) {
-                throw new LogicException();
+                throw new \LogicException();
             }
 
             $value = (string) $value;
@@ -64,7 +62,7 @@ class ValidatorFactoryResolvedListener implements ListenerInterface
 
             try {
                 $phoneNumber = new MobileNumber($value, $defaultRegion);
-            } catch (Throwable $e) {
+            } catch (\Throwable $e) {
                 return false;
             }
 

@@ -14,7 +14,6 @@ namespace FirecmsExt\Sms\Drivers;
 use FirecmsExt\Sms\Contracts\SmsableInterface;
 use FirecmsExt\Sms\Exceptions\DriverErrorException;
 use FirecmsExt\Sms\Exceptions\RequestException;
-use InvalidArgumentException;
 
 /**
  * 华为.
@@ -45,7 +44,7 @@ class HuaweiCloudDriver extends AbstractDriver
         $channel = $channels[$from] ?? '';
 
         if (empty($channel)) {
-            throw new InvalidArgumentException("From Channel [{$from}] Not Exist");
+            throw new \InvalidArgumentException("From Channel [{$from}] Not Exist");
         }
 
         $params = [

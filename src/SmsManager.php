@@ -18,10 +18,7 @@ use FirecmsExt\Sms\Contracts\SmsableInterface;
 use FirecmsExt\Sms\Contracts\SmsManagerInterface;
 use FirecmsExt\Sms\Exceptions\StrategicallySendMessageException;
 use Hyperf\Contract\ConfigInterface;
-use InvalidArgumentException;
-use LogicException;
 use Psr\Container\ContainerInterface;
-use Throwable;
 
 class SmsManager implements SmsManagerInterface
 {
@@ -71,7 +68,7 @@ class SmsManager implements SmsManagerInterface
         foreach ($senders as $sender) {
             try {
                 return $smsable->send($this->get($sender));
-            } catch (Throwable $throwable) {
+            } catch (\Throwable $throwable) {
                 $exception = empty($exception)
                     ? new StrategicallySendMessageException(
                         'The SMS manger encountered some errors on strategically send the message',
@@ -122,13 +119,13 @@ class SmsManager implements SmsManagerInterface
             );
 
         if (empty($senders)) {
-            throw new LogicException('The SMS senders value is missing on SmsMessage class or default config');
+            throw new \LogicException('The SMS senders value is missing on SmsMessage class or default config');
         }
 
         $strategy = $smsable->strategy ?: $this->config['default']['strategy'];
 
         if (empty($strategy)) {
-            throw new LogicException('The SMS strategy value is missing on SmsMessage class or default config');
+            throw new \LogicException('The SMS strategy value is missing on SmsMessage class or default config');
         }
 
         return make($strategy)->apply($senders, $smsable->to);
@@ -142,7 +139,7 @@ class SmsManager implements SmsManagerInterface
         $config = $this->config['senders'][$name] ?? null;
 
         if (is_null($config)) {
-            throw new InvalidArgumentException("The SMS sender [{$name}] is not defined.");
+            throw new \InvalidArgumentException("The SMS sender [{$name}] is not defined.");
         }
 
         return make(Sender::class, compact('name', 'config'));

@@ -12,14 +12,12 @@ declare(strict_types=1);
 namespace FirecmsExt\Sms\Exceptions;
 
 use Psr\Http\Message\ResponseInterface;
-use RuntimeException;
-use Throwable;
 
-class DriverErrorException extends RuntimeException
+class DriverErrorException extends \RuntimeException
 {
     public ResponseInterface $response;
 
-    public function __construct(string $message, $code = null, ResponseInterface $response = null, Throwable $previous = null)
+    public function __construct(string $message, $code = null, ResponseInterface $response = null, \Throwable $previous = null)
     {
         parent::__construct($message, $code, $previous);
 

@@ -11,8 +11,6 @@ declare(strict_types=1);
  */
 namespace FirecmsExt\Sms\Exceptions;
 
-use InvalidArgumentException;
-
-class InvalidMobileNumberException extends InvalidArgumentException
+class InvalidMobileNumberException extends \InvalidArgumentException
 {
 }
