@@ -8,18 +8,12 @@ use FirecmsExt\Sms\Contracts\ShouldQueueInterface as ShouldQueue;
 use FirecmsExt\Sms\Contracts\SenderInterface;
 use FirecmsExt\Sms\Smsable;
 
-class %CLASS% extends Smsable implements ShouldQueue
+class %CLASS% extends Smsable
 {
-    /**
-     * Create a new SMS message instance.
-     */
-    public function __construct(array $data)
+    public function __construct(public array $data)
     {
     }
 
-    /**
-     * Build the SMS message.
-     */
     public function build(SenderInterface $sender): void
     {
         $this->content('');
