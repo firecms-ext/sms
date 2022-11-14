@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace %NAMESPACE%;
 
-use FirecmsExt\Sms\Contracts\ShouldQueueInterface as ShouldQueue;
 use FirecmsExt\Sms\Contracts\SenderInterface;
 use FirecmsExt\Sms\Smsable;
 
